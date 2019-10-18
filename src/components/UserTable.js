@@ -7,7 +7,7 @@ import {
     TableRow,
     Button
 } from "@material-ui/core";
-export default ({users}) => (
+export default ({users, deleteUser}) => (
     <Table>
         <TableHead>
             <TableRow>
@@ -26,7 +26,11 @@ export default ({users}) => (
                             <Button>Edit</Button>
                         </TableCell>
                         <TableCell>
-                            <Button>Delete</Button>
+                            <Button onClick={() => deleteUser(user.id)}
+                                color="secondary"
+                            >
+                                Delete
+                            </Button>
                         </TableCell>
                     </TableRow>
                 ))

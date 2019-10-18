@@ -29,6 +29,11 @@ export default () => {
         setUsers([...users, user])
     }
 
+    const deleteUser = id => {
+        // set users as an array of user without a user with id [id].
+        setUsers(users.filter(user => user.id !== id));
+    }
+
     return (
         <Grid className={classes.root} container spacing={3}>
             <Grid item xs={12}>
@@ -49,7 +54,10 @@ export default () => {
             <Grid item xs={6}>
                 <Paper className={classes.paper}>
                     <h2>View users</h2>
-                    <UserTable users={users}/>
+                    <UserTable 
+                        users={users}
+                        deleteUser={deleteUser}
+                    />
                 </Paper>
             </Grid>
         </Grid>
