@@ -11,6 +11,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
+    height: '100%'
   },
   title: {
     flexGrow: 1
@@ -21,7 +22,7 @@ function App() {
   const classes = useStyles();
 
   return (
-    <Container>
+    <Container id="scroll-container">
       <AppBar>
         <Toolbar>
           <Typography position="fixed" className={classes.title}>

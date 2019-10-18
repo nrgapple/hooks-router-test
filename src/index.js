@@ -6,8 +6,8 @@ import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from 'react-router-dom';
 
 render(
-    <BrowserRouter>
-        <App />
+    <BrowserRouter height="100%">
+        <App height="100%" />
     </BrowserRouter>,
     document.getElementById('root')
 );
