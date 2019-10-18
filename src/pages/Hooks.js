@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Grid, Paper, Typography, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import UserTable from '../components/UserTable'
@@ -16,6 +16,12 @@ const useStyles = makeStyles(theme => ({
 
 export default () => {
     const classes = useStyles();
+    const userData = [
+        { id: 1, name: 'ag', username: 'nrgapple'},
+        { id: 2, name: 'alex', username: 'acramer'}
+    ]
+
+    const [users, setUsers] = useState(userData);
 
     return (
         <Grid className={classes.root} container spacing={3}>
@@ -36,7 +42,7 @@ export default () => {
             <Grid item xs={6}>
                 <Paper className={classes.paper}>
                     <h2>View users</h2>
-                    <UserTable />
+                    <UserTable users={users}/>
                 </Paper>
             </Grid>
         </Grid>

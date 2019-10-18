@@ -7,7 +7,7 @@ import {
     TableRow,
     Button
 } from "@material-ui/core";
-export default () => (
+export default ({users}) => (
     <Table>
         <TableHead>
             <TableRow>
@@ -17,16 +17,24 @@ export default () => (
             </TableRow>
         </TableHead>
         <TableBody>
-            <TableRow>
-                <TableCell>Name data</TableCell>
-                <TableCell>Username data</TableCell>
-                <TableCell>
-                    <Button>Edit</Button>
-                </TableCell>
-                <TableCell>
-                    <Button>Delete</Button>
-                </TableCell>
-            </TableRow>
+            {users.length > 0 ? (
+                users.map(user => (
+                    <TableRow key={user.id}>
+                        <TableCell>{user.name}</TableCell>
+                        <TableCell>{user.username}</TableCell>
+                        <TableCell>
+                            <Button>Edit</Button>
+                        </TableCell>
+                        <TableCell>
+                            <Button>Delete</Button>
+                        </TableCell>
+                    </TableRow>
+                ))
+            ) : (
+                <TableRow>
+                    <TableCell colSpan={3}>No users</TableCell>
+                </TableRow>
+            )}
         </TableBody>
     </Table>
 );
