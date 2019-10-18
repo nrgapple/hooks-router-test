@@ -7,13 +7,14 @@ import {
     TableRow,
     Button
 } from "@material-ui/core";
-export default ({users, deleteUser}) => (
+export default ({users, deleteUser, editRow}) => (
     <Table>
         <TableHead>
             <TableRow>
                 <TableCell>Name</TableCell>
                 <TableCell>Username</TableCell>
                 <TableCell>Actions</TableCell>
+                <TableCell></TableCell>
             </TableRow>
         </TableHead>
         <TableBody>
@@ -23,7 +24,11 @@ export default ({users, deleteUser}) => (
                         <TableCell>{user.name}</TableCell>
                         <TableCell>{user.username}</TableCell>
                         <TableCell>
-                            <Button>Edit</Button>
+                            <Button
+                                onClick={() => editRow(user)}
+                            >
+                                Edit
+                            </Button>
                         </TableCell>
                         <TableCell>
                             <Button onClick={() => deleteUser(user.id)}
